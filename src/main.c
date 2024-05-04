@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
 int main(int argc, char **argv){
   /*
   printf("$");
@@ -11,6 +12,6 @@ int main(int argc, char **argv){
   */
   char str[] = "happy happy joy";
   char **str2 =  tokenize(str);
-  print_tokens(str2);
+  init_history();
 
 }

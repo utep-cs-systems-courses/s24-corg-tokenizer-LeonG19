@@ -10,11 +10,13 @@ List* init_history(){
 }
 
 void add_history(List *list, char* str){
+  Item *new = malloc(sizeof(Item));
+  new -> str = str;
+  new -> next = 0;
+    
   if (list->root == 0){
-    list->root = malloc(sizeof(Item));
-    list->root->str = str;
-    list->root->id = 1;
-    list->root->next = 0;
+    list->root = new;
+    new -> id= 1;
     return;
   }
   int id_number = 1;
@@ -22,14 +24,12 @@ void add_history(List *list, char* str){
   while ((temp = temp->next)!=0){
     id_number+=1;
   }
-  temp = malloc(sizeof(Item));
-  temp->id = id_number;
-  temp->str = str;
-  temp->next = 0;
+  new->id = id_number;
+  temp -> next = new;
 }
 
 char *get_history(List *list,int id){
-  if (list->root = 0){
+  if (list->root == 0){
     return 0;
   }
 
